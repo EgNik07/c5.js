@@ -1,8 +1,5 @@
-import * as myC5 from './myC5.js'
 var words = [];
 var word = [];
-
-
 
 
 var g=0;
@@ -75,19 +72,33 @@ input_area.addEventListener("keyup",exam );
 
 
 
-myC5.draw_text("abf");
 
-
-myC5.draw_canvas(w,h,"canvas_div")
 
 function setup(){
-    console.log("hello");
+    console.log("345");
+
+    draw_canvas(w,h,"canvas_div");
+
+   
 }
+var g=0;
+function draw(){
+    console.log("hello");
+    g++;
+    set_frameRate(1000-(g*10));
+    background(50,50,200);
+    text("abf",50+g,50+g);
+
+}
+
 
 // function setup() {
 //     var myCanvas = createCanvas(w, h);
 //     myCanvas.parent("canvas_div");
 //     frameRate(1); 
+
+
+
 //     background(220); 
 //     textSize(30);
 //     text("Write in Down - game",55,50);

@@ -1,64 +1,85 @@
-import lt from './letters.json' assert { type: "json" };
-export const letters = lt;
-export var canvas_div;
-export var canvas = document.createElement("canvas");
-
+var canvas_div;
+var canvas = document.createElement("canvas");
+var ctx;
+  
 var intervalID;
+//sizes 
+var text_size = 16;
 
-var a = 220;
-var b = 220;
-var c = 220;
+// colors
+
+var canvas_color = [220,220,220];
+var text_color = [0,0,0];
 
 var frameRateCount = 1000;
-  
+
+// colors
+
+//draws
+
 function draw_letter(letter){
    
-    for(var i of letters[letter]){
-        
-          console.log(i);
-        
-    }
 }
 
-export function draw_canvas(w,h,id){
+function draw_canvas(w,h,id){
     canvas_div = document.getElementById(id);
 
    
     var headerText = document.createTextNode("Hello World"); 
     canvas.appendChild(headerText); 
-    canvas.style.backgroundColor = 'rgb(' + a + ',' + b + ',' + c + ')';
+    canvas.style.backgroundColor = 'rgb(' + canvas_color[0] + ',' + canvas_color[1] + ',' + canvas_color[2] + ')';
     canvas.style.height = h+"px";
     canvas.style.width = w+"px";
     canvas_div.appendChild(canvas); 
+    ctx= canvas.getContext("2d");
     
 }
 
 
-export function draw_text(text){
-   
-    for(var i of text){
-      
-            draw_letter(i);
-        
-      
-    };
+function text(text,x,y){
+    ctx.font = "48px serif";
+    ctx.strokeText("Hello world", x, y);
 }
+// draws
 //sets
-export function set_frameRate(frameRate){
+function set_frameRate(frameRate){
     frameRateCount = frameRate;
 }
+function background(r,g,b){
+    canvas_color = [r,g,b];
+    ctx.fillStyle = "red";
+    ctx.fill();
+    canvas.style.backgroundColor = 'rgb(' + canvas_color[0] + ',' + canvas_color[1] + ',' + canvas_color[2] + ')';
+}
+function textColor(r,g,b){
+    text_color = [r,g,b];
+}
+function textSize(t_s){
+    text_size = t_s;
+}
+//set
+
+//global
+function setup(){ return false}
+function draw(){}
 
 function Loop(){
-    try {
-        intervalID = setInterval(draw, frameRateCount);
+    console.log('12')
+    setTimeout(()=>{
+                draw();
+                setTimeout(Loop,frameRateCount);
+            }, frameRateCount);
+            //setInterval(Loop,10);
+}
+//global
 
-    } catch (error) {
-        
+
+
+//run
+const setup_interval_id = setInterval(()=>{
+    if(!setup()){
+        clearInterval(setup_interval_id);
     }
-    
-}
-function stopLoop() {
-    clearInterval(nIntervId);
-    nIntervId = null;
-}
-setInterval(Loop);
+},100);
+
+setTimeout(Loop, "1 second");
