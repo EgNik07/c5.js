@@ -80,89 +80,76 @@ function setup(){
     draw_canvas(w,h,"canvas_div");
 
    
+   
+
 }
 var g=0;
 function draw(){
     console.log("hello");
     g++;
-    set_frameRate(1000-(g*10));
-    background(50,50,200);
-    text("abf",50+g,50+g);
-
-}
-
-
-// function setup() {
-//     var myCanvas = createCanvas(w, h);
-//     myCanvas.parent("canvas_div");
-//     frameRate(1); 
-
+    set_frameRate(1000);
+    background(50+g,50+g,200);
+    textSize(15);
+    
+    text("Write in Down - game",65,20);
+    // textSize(20);
+    if(g == end_time){
+        textSize(15);
+        die = true;
+    }
 
 
-//     background(220); 
-//     textSize(30);
-//     text("Write in Down - game",55,50);
-//     textSize(20);
-   
-  
-   
-// }
-
-// function draw() {
-//     if(start){
+    if(start){
 
        
-//         frameRate(1+(score/10)); 
+        set_frameRate(1000+(score/10)); 
        
            
-        
+  
     
 
         
-//         if(g == end_time){
-//             textSize(40);
-//             die = true;
-//         }
+       
 
        
 
-//         if(new_word){
-//             g=0;
+        if(new_word){
+            g=0;
             
             
-//             string = ""; 
-//             new_word = false;
-//             for(var i =0; i<words[word_num].length;i++){
-//                 string+=words[word_num][i];
-//             }
-//             word_num++;
-//         }
+            string = ""; 
+            new_word = false;
+            for(var i =0; i<words[word_num].length;i++){
+                string+=words[word_num][i];
+            }
+            word_num++;
+        }
        
-//         if(!die ){
-//             textSize(20);
-//             background(220);
+        if(!die ){
+            textSize(5);
+            background(220,220,220);
             
-//             text(string, 190-(words[word_num].length*3),side*(g*2)+20 );
+            text(string, 190-(words[word_num].length*3),side*(g*2)+20 );
 
-//             // loadPixels();
-//             // console.log(pixels);
+            // loadPixels();
+            // console.log(pixels);
 
             
-//             stroke(255,0,0);
-//             line(0, end_time*10*2-5, w, end_time*10*2-5);
-//             fill(0,0,0);
-//             stroke(0);
-//             console.log(g);
-//             g++;
+            set_lineColor(255,0,0);
+            line(0, end_time*10*2-5, w, end_time*10*2-5);
             
-//         }
+            set_lineColor(0,0,0);
+            console.log(g);
+            g++;
+            
+        }
        
-//         if(die){      
+        if(die){      
             
-//             text("YOU DIE",130,50);
+            text("YOU DIE",130,50);
             
-//             restart_btn.style.display = "block";
-//         }
-//     }
+            restart_btn.style.display = "block";
+        }
+    }
     
-// }
+}
