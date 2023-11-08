@@ -1,0 +1,52 @@
+body{
+    margin: 0px;
+    padding: 0px;
+
+    display: flex;
+    justify-content: center;
+}
+button{
+    width: 100px;
+    height: 100px;
+}
+.conteiner{
+    width: 400px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.input_area{
+    resize: none;
+    flex-wrap: nowrap;
+    
+    pointer-events:none;
+    
+    font-size: 20px;
+
+    width: 400px;
+}
+.btns{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.ai{
+    width: 100px;
+    height: 100px;
+    margin-top:15px;
+}
+
+#canvas_div{
+    width: 400px;
+}
+
+
+
+#ai_btn{
+    width: 75px;
+    height: 75px;
+}
